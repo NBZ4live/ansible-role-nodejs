@@ -12,6 +12,6 @@
   tags: [packages,nodejs]
 
 - name: Install global npm packages
-  command: npm install -g {{ item }}
+  npm: name={{ item }} global=yes
   with_items: nodejs_packages_global
   tags: [packages,npm]
