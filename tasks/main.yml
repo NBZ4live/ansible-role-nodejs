@@ -1,0 +1,17 @@
+---
+
+- name: Install the nodejs and npm packages (APT)
+  apt: >
+    name={{ item }}
+    state=present
+    update_cache=yes
+    cache_valid_time={{ nodejs_apt_cache_valid_time }}
+  with_items: nodejs_apt_packages
+  environment: env
+  when: ansible_os_family == "Debian"
+  tags: [packages,nodejs]
+
+- name: Install global npm packages
+  command: npm install -g {{ item }}
+  with_items: nodejs_packages_global
+  tags: [packages,npm]
