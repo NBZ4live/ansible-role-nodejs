@@ -4,6 +4,5 @@ nodejs_apt_cache_valid_time: 86400
 
 nodejs_apt_packages:
   - nodejs
-  - npm
 
 nodejs_packages_global: []
